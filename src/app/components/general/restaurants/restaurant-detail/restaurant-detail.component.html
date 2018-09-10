@@ -1,0 +1,26 @@
+ 
+    <div class="animal-box" class="col-lg-11" *ngIf="restaurant">
+        <div id="animal-head-card" class="col-lg-4 pull-left">
+            <img src="{{restaurant.logo}}" style="width:300px"/>
+        </div>
+        <div class="animal-data col-lg-7 pull-left">
+            <h1>Name:{{restaurant.legalName}}</h1>
+            <p>Email:{{restaurant.comercialEmail}}</p>
+            <p>Address:{{restaurant.address}}</p>
+            <p>Phone number:{{restaurant.adminNumber}}</p>
+            <p>Location:{{restaurant.location}}</p>
+            
+            <p>Rating:{{restaurant.rating}}</p>
+            <p>Meals</p>
+            <div class="col-lg-3" *ngFor="let meal of restaurant.meals">
+                {{meal.name}}
+                {{meal.price}}
+            </div>
+            <p>Reviews</p>
+            <div class="col-lg-3" *ngFor="let review of restaurant.reviews">
+                {{review.rating}} - {{review.review}}
+            </div>
+        </div>
+    </div>
+    <div #gmap id="gmap" style="width:500px;height:300px"></div>
+

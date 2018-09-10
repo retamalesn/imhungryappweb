@@ -1,0 +1,11 @@
+    <div class="animal-box" class="col-lg-11" *ngIf="meal">
+        <div id="animal-head-card" class="col-lg-4 pull-left">
+            <img src="{{meal.image}}" style="width:300px"/>
+        </div>
+        <div class="animal-data col-lg-7 pull-left">
+            <h1>Name:{{meal.name}}</h1>
+            <p>Descripcion:{{meal.description}}</p>
+            <p>Price:{{meal.price}}</p>
+        </div>
+    </div>
+

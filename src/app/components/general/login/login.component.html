@@ -1,0 +1,30 @@
+<div class="col-lg-6">
+    <h1>{{title}}</h1>
+
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        Login Success!
+    </div>
+    <div class="alert alert-danger" *ngIf="status == 'error'">
+        Login Failed!
+    </div>
+    
+    <form #loginForm='ngForm' (ngSubmit)='onSubmit()' class="col-lg-7">
+        <p>
+            <label>Email</label>
+            <input type="text" name="email" #email='ngModel' [(ngModel)] = 'customer.email' class="form-control" 
+            required/>
+            <span *ngIf='!email.valid && !email.tocuhed'>
+                Email required!
+            </span>
+        </p>
+        <p>
+            <label>Password</label>
+            <input type="password" name="pass" #pass='ngModel' [(ngModel)]='customer.pass' class="form-control" 
+            required/>
+            <span *ngIf='!pass.valid && !pass.touched'>
+                Password required!
+            </span>
+        </p>
+        <input type="submit" value="Login" class="btn btn-success" [disabled]='!loginForm.form.valid'/>
+    </form>
+</div>

@@ -1,0 +1,129 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+h3 a {
+    color:black;
+    text-decoration: none;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+body{
+    background-color:grey;
+}
+.navigation.col-lg-12{
+    margin-top: 10px;
+}
+.jumbotron{
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #ccc;
+}
+
+.navbar-nav .active{
+    border-bottom: 3px solid orange !important;
+}
+
+.navbar-default .navbar-nav>li>a{
+    transition:all 300ms;
+    border-bottom: 3px solid transparent;
+}
+
+.navbar-default .navbar-nav>li>a:hover{
+    transition:all 300ms;
+    border-bottom: 3px solid orange;
+}
+
+.btn-transition{
+    padding: 10px;
+    background: red;
+    color:white;
+    border-radius: 20px;
+    border: 4px solid blue;
+    transition:all 2s;
+    display: block;
+    width: 100px;
+}
+
+.btn-transition:hover{
+    text-decoration: none;
+    color:white;
+    cursor:pointer;
+    border-radius: 2px;
+    background: #ccc;
+    border: 1px solid red;
+}
+
+.animated_box{
+    margin-top: 15px;
+    background: green;
+    border: 5px solid black;
+    width: 200px;
+    height: 200px;
+    /*animation-name: slide2;
+    animation-duration: 10s;*/
+}
+
+@keyframes slide2 {
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slide1 {
+    0% {
+        margin-left: 0px;
+    }
+    50%{
+        margin-left: 400px;
+        background: blue;
+        border-radius: 1000px;
+    }
+    100%{
+        margin-left: 200px;
+        background: yellow;
+    }
+} 
+
+@keyframes slide {
+    from {
+        margin-left: 0px;
+    }
+    to{
+        margin-left: 400px;
+        background: blue;
+    }
+}
+
+.image_for_edit img{
+    width:60px;
+}
+
+.animal-image-mask,
+.keeper-image-mask{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.animal-image-mask img,
+.keeper-image-mask img{
+max-height: 400px;
+}
+
+.avatar{
+    width:35px;
+    height:35px;
+    border-radius: 700px;
+    overflow: hidden;
+    margin-top: 9px;
+    margin-right: 2px;
+}
+
+.avatar img{
+     height:45px;
+}

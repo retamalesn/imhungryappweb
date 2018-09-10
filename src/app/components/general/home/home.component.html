@@ -1,0 +1,16 @@
+<div class="col-lg-8 col-lg-offset-2">
+    <div class="jumbotron">
+        <h1>{{title}}</h1>
+        <p>Im hungry!</p>
+        <p>
+            <a class="btn btn-primary btn-lg" role="button" [routerLink]="['/meals']">
+                See meals
+            </a>
+        </p>
+    </div>
+</div> 
+<div class="clearfix"></div>
+<div class="col-lg-8">
+    <router-outlet></router-outlet>
+</div>
+

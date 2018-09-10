@@ -1,0 +1,106 @@
+<div class="navigation col-lg-12">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a [routerLink]="['/home']" class="navbar-brand">Imhungry</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li>
+          <a [routerLink]="['/meals']" [routerLinkActive]="['active']">
+            <span class="glyphicon glyphicon-apple"></span>
+            Meals
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/restaurants']" [routerLinkActive]="['active']">
+            <span class="glyphicon glyphicon-glass"></span>
+            Restaurants
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/reviews']" [routerLinkActive]="['active']">
+            <span class="glyphicon glyphicon-star"></span>
+            Reviews
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/orders']" [routerLinkActive]="['active']">
+            <span class="glyphicon glyphicon-money"></span>
+            Orders
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/customers']" [routerLinkActive]="['active']">
+            <span class="glyphicon glyphicon-money"></span>
+            Customers
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf='!identity'>
+        <li>
+          <a [routerLink]="['/register']" [routerLinkActive]="['active']">
+            <span class="glyphicon glyphicon-user"></span>
+            Register
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/login']" [routerLinkActive]="['active']">
+            <span class="glyphicon glyphicon-log-in"></span>
+            Login
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf='identity'>
+        <li class="avatar">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNAM5sWNKuLSkHmpKMpSIgKB9xQvCM_Ndl6hdp2y6gmK2PvvHs" />
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle='dropdown' href="#">
+            {{identity.name}} <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+              <a [routerLink]="['/admin-panel']">
+                <span class="glyphicon glyphicon-tasks"></span>
+                Administration
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/profile']">
+                <span class="glyphicon glyphicon-cog"></span>
+                My Profile
+              </a>
+            </li>
+            <li>
+              <a (click)="logout()" class="pointer">
+                <span class="glyphicon glyphicon-log-out"></span>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+          <a [routerLink]="['/admin-panel']">
+            <span class="glyphicon glyphicon-tasks"></span>
+            Administration
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/profile']">
+            <span class="glyphicon glyphicon-cog"></span>
+            My Profile
+          </a>
+        </li>
+        <li>
+          <a (click)="logout()" class="pointer">
+            <span class="glyphicon glyphicon-log-out"></span>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<div class="col-lg-11">
+  <router-outlet></router-outlet>
+</div>

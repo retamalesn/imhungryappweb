@@ -1,0 +1,46 @@
+<div class="col-lg-10">
+
+    <h3>{{title}}</h3>
+
+    <form #formAdd="ngForm" (ngSubmit)="onSubmit()">
+        <p>
+            <label>Name</label>
+            <input type="text" name="legalName" #legalName="ngModel" [(ngModel)]="restaurant.legalName" 
+            class="form-control" required/>
+            <span *ngIf="!legalName.valid && !legalName.touched">
+                Name is required!
+            </span>
+        </p>
+        <p>
+            <label>Address</label>
+            <textarea class="form-control" name="address" #address="ngModel" [(ngModel)]="restaurant.address" required></textarea>
+            <span *ngIf="!address.valid && !address.touched">
+                 Address is required!
+            </span>
+        </p>
+        <p>
+            <label>Admin number</label>
+            <input type="text" name="adminNumber" #adminNumber="ngModel" [(ngModel)]="restaurant.adminNumber" 
+            class="form-control" required/>
+            <span *ngIf="!adminNumber.valid && !adminNumber.touched">
+                 Admin Number is required!
+            </span>
+        </p>
+        <p>
+            <label>Email</label>
+            <textarea class="form-control" name="comercialEmail" #comercialEmail="ngModel" [(ngModel)]="restaurant.comercialEmail" required></textarea>
+            <span *ngIf="!comercialEmail.valid && !comercialEmail.touched">
+                Email is required!
+            </span>
+        </p>
+        <p>
+            <label>Location</label>
+            <input type="text" name="location" #location="ngModel" [(ngModel)]="restaurant.location" class="form-control" required/>
+            <span *ngIf="!location.valid && !location.touched">
+                Location is required!
+            </span>
+        </p>
+        <input type="submit" value="{{title}}" class="btn btn-success"/>
+    </form>
+
+</div>

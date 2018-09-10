@@ -1,0 +1,47 @@
+<div class="col-lg-6">
+    <h1>{{title}}</h1>
+
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        Register success!, please login <a [routerLink]="['/login']">here</a>.
+    </div>
+    <div class="alert alert-danger" *ngIf="status == 'error'">
+        Error to register, please try again!
+    </div>
+
+    <form #registerForm='ngForm' (ngSubmit)='onSubmit(registerForm)' class='col-lg-10'>
+        <p>
+            <label>Name</label>
+            <input type="text" name="name" #name='ngModel' [(ngModel)]='customer.name' class="form-control" 
+            required />
+            <span *ngIf='!name.valid && name.touched'>
+                Name is required
+            </span>
+        </p>
+        <p>
+            <label>LastName</label>
+            <input type="text" name="lastName" #lastName='ngModel' [(ngModel)]='customer.lastName' class="form-control" 
+            required />
+            <span *ngIf='!lastName.valid && lastName.touched'>
+                LastName is required
+            </span>
+        </p>
+        <p>
+            <label>Email</label>
+            <input type="text" name="email" #email='ngModel' [(ngModel)]='customer.email' class="form-control" 
+            required />
+            <span *ngIf='!email.valid && email.touched'>
+                Email is required
+            </span>
+        </p>
+        <p>
+            <label>Password</label>
+            <input type="text" name="pass" #pass='ngModel' [(ngModel)]='customer.pass' class="form-control" 
+            required />
+            <span *ngIf='!pass.valid && pass.touched'>
+                Pass is required
+            </span>
+        </p>
+        <input type="submit" value="{{title}}" class="btn btn-primary" [disabled]='!registerForm.form.valid'/>
+    </form>
+</div>
+
